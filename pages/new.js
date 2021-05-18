@@ -12,23 +12,23 @@ function New() {
     if (isSubmitting) {
       if (Object.keys(errors).length === 0) {
         createNote();
-        console.log(form)
+        console.log(form);
       } else {
         setIsSubmitting(false);
       }
     }
   }, [errors]);
 
-  const createNote = () => {
+  const createNote = async () => {
     try {
-      fetch('http://localhost:3000/api/note/', {
-        method: 'POST',
+      await fetch("http://localhost:3000/api/note/", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(form),
-      })
-      router.push("/")
+      });
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
