@@ -23,6 +23,7 @@ function Note({ note }) {
       <h1>{note.title}</h1>
       <h3>{note.description}</h3>
       <button onClick={deletedNote}>Delete</button>
+      <button onClick={() => router.push('/')}>Ver Notas</button>
     </div>
   );
 }
